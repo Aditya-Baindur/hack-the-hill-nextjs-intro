@@ -9,6 +9,7 @@ import test from "node:test";
 
 const run = promisify(execFile);
 const cli = fileURLToPath(new URL("../bin/create-hth-app.mjs", import.meta.url));
+const metadata = JSON.parse(await readFile(new URL("../package.json", import.meta.url), "utf8"));
 async function temporary(t) {
   const directory = await mkdtemp(path.join(os.tmpdir(), "create-hth-test-"));
   t.after(() => rm(directory, { recursive: true, force: true }));
@@ -18,7 +19,7 @@ async function temporary(t) {
 test("help/version do not create any files", async (t) => {
   const cwd = await temporary(t);
   assert.match((await run(process.execPath, [cli, "--help"], { cwd })).stdout, /Usage:/);
-  assert.equal((await run(process.execPath, [cli, "--version"], { cwd })).stdout.trim(), "0.1.0");
+  assert.equal((await run(process.execPath, [cli, "--version"], { cwd })).stdout.trim(), metadata.version);
   assert.deepEqual(await readdir(cwd), []);
 });
 

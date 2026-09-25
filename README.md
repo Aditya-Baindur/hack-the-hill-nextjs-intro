@@ -35,14 +35,14 @@ Slide 2 includes a hands-on preview: add an idea, refresh, or reset the board. T
 The workshop starter ships a working Next.js UI, Worker GET/POST API, D1 migration, local development scripts, and project instructions for Codex and Copilot. It creates a new app folder without installing dependencies or changing existing files.
 
 ```sh
-npm exec --yes --package=https://github.com/Aditya-Baindur/hack-the-hill-nextjs-intro/releases/download/starter-v0.1.0/create-hth-app-0.1.0.tgz -- create-hth-app my-idea-board
+npm exec --allow-remote=root --yes --package=https://github.com/Aditya-Baindur/hack-the-hill-nextjs-intro/releases/download/starter-v0.1.1/create-hth-app-0.1.1.tgz -- create-hth-app my-idea-board
 cd my-idea-board
 npm install
 npm run db:migrate
 npm run dev
 ```
 
-Open <http://localhost:3000>. The same development command starts the Worker at <http://localhost:8787>; Ctrl+C stops both. The package is distributed as an npm tarball on [GitHub Releases](https://github.com/Aditya-Baindur/hack-the-hill-nextjs-intro/releases/tag/starter-v0.1.0). Registry publication is pending npm sign-in; the command above works without that publication.
+Open <http://localhost:3000>. The same development command starts the Worker at <http://localhost:8787>; Ctrl+C stops both. The package is distributed as an npm tarball on [GitHub Releases](https://github.com/Aditya-Baindur/hack-the-hill-nextjs-intro/releases/tag/starter-v0.1.1). Registry publication is pending npm sign-in; the command above works without that publication.
 
 See [package source and publishing instructions](packages/create-hth-app/README.md). In the generated app, paths start at `app/` and `worker/`. The original fallback below keeps its `demo/` prefix.
 

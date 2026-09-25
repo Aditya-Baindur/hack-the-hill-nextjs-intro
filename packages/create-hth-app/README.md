@@ -8,10 +8,10 @@ The generated app is a working idea board. Add an idea, refresh, and see it pers
 
 Install [Node.js 22 or newer](https://nodejs.org/en/download) (Node 24 LTS recommended). No Cloudflare account is needed for local development.
 
-This release is available as an npm package tarball on GitHub:
+This release is available as an npm package tarball on GitHub. The command opts in to installing this direct URL on npm 12; it does not change your global npm settings:
 
 ```sh
-npm exec --yes --package=https://github.com/Aditya-Baindur/hack-the-hill-nextjs-intro/releases/download/starter-v0.1.0/create-hth-app-0.1.0.tgz -- create-hth-app my-idea-board
+npm exec --allow-remote=root --yes --package=https://github.com/Aditya-Baindur/hack-the-hill-nextjs-intro/releases/download/starter-v0.1.1/create-hth-app-0.1.1.tgz -- create-hth-app my-idea-board
 cd my-idea-board
 npm install
 npm run db:migrate
