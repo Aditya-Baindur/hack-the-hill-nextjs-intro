@@ -200,3 +200,17 @@ h2{font-size:112px;line-height:1.02}
 .section-blue .slide-resource,.section-blue .slide-actions button{color:#e0eeff}
 .section-blue .progress{background:#fff}
 @media print{.slide-resource{display:none!important}}
+
+/* AI tools and the workshop starter. */
+.assistant-layout{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+.assistant-layout h2{font-size:106px}
+.tool-maker{display:block;font:21px "Geist Mono",monospace;color:var(--muted);margin-bottom:20px}
+.tool-card{border:1px solid var(--line);border-radius:10px;padding:36px;min-height:270px;display:flex;flex-direction:column;justify-content:space-between;gap:32px}
+.tool-card code{font-size:24px;color:var(--blue)}
+.tool-card p{font-size:34px;line-height:1.2;letter-spacing:-.045em;font-weight:500}
+.tool-card>span{font:18px "Geist Mono",monospace;color:#777}
+.starter-layout{flex-direction:column;align-items:flex-start}
+.starter-layout h2{font-size:104px}
+.starter-layout>div{display:flex;gap:34px;margin-top:40px;font:25px "Geist Mono",monospace;color:#777}
+.starter-layout>a{margin-top:55px;font-size:26px;color:var(--blue);text-decoration:none}
+.starter-layout>a:hover{text-decoration:underline}

@@ -1,0 +1,25 @@
+{
+  "name": "create-hth-app",
+  "version": "0.1.0",
+  "description": "Create the Hack the Hill Next.js, Cloudflare Worker and D1 idea board.",
+  "type": "module",
+  "bin": { "create-hth-app": "bin/create-hth-app.mjs" },
+  "files": ["bin/", "template/", "README.md", "LICENSE"],
+  "engines": { "node": ">=22.0.0" },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "sync-template": "node scripts/sync-template.mjs",
+    "prepublishOnly": "npm test"
+  },
+  "keywords": ["create", "nextjs", "cloudflare", "workers", "d1", "hack-the-hill"],
+  "author": "Aditya Baindur",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aditya-Baindur/hack-the-hill-nextjs-intro.git",
+    "directory": "packages/create-hth-app"
+  },
+  "homepage": "https://hth.byaditya.com/resources/",
+  "bugs": { "url": "https://github.com/Aditya-Baindur/hack-the-hill-nextjs-intro/issues" },
+  "publishConfig": { "access": "public" }
+}

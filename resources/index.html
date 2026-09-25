@@ -11,15 +11,36 @@
     @font-face{font-family:Geist;src:url("../assets/geist-latin.woff2") format("woff2");font-weight:100 900;font-display:swap}
     @font-face{font-family:"Geist Mono";src:url("../assets/geist-mono-latin.woff2") format("woff2");font-weight:100 900;font-display:swap}
     :root{--ink:#171717;--muted:#696969;--line:#e8e8e8;--blue:#0070f3}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff;color:var(--ink);font-family:Geist,Arial,sans-serif}a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}code,pre,.mono{font-family:"Geist Mono",ui-monospace,monospace}code{font-size:.92em}header,main,footer{width:min(1040px,calc(100% - 40px));margin:auto}header{display:flex;justify-content:space-between;align-items:center;padding:25px 0;border-bottom:1px solid var(--line)}header strong{font-size:19px;letter-spacing:-.04em}header a{font-size:14px}h1,h2,h3,p{margin-top:0}h1,h2,h3{letter-spacing:-.055em}h1{font-size:clamp(56px,9vw,106px);line-height:1;margin:70px 0 25px}h2{font-size:clamp(35px,5vw,54px);margin:0 0 22px}h3{font-size:25px;margin-bottom:10px}p{font-size:18px;line-height:1.5;color:var(--muted)}.lead{max-width:760px;font-size:23px}.eyebrow{font:13px "Geist Mono",monospace;color:var(--blue)}section{padding:70px 0;border-top:1px solid var(--line);scroll-margin-top:22px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.card{border:1px solid var(--line);border-radius:8px;padding:24px}.card h3{margin:0 0 8px}.card p{margin-bottom:0}.card a{font-weight:600}.flow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:28px}.flow span{padding:17px 21px;border:1px solid var(--line);border-radius:7px;font-weight:600}.flow b{font-size:24px;color:var(--blue)}.link-list{list-style:none;padding:0;margin:0}.link-list li{display:flex;justify-content:space-between;gap:20px;padding:17px 0;border-bottom:1px solid var(--line);font-size:18px}.link-list small{color:var(--muted);font-size:14px;text-align:right}.prompt{padding:24px 0;border-top:1px solid var(--line);scroll-margin-top:18px}.prompt h3{margin-bottom:10px}.prompt pre{white-space:pre-wrap;background:#fafafa;border:1px solid var(--line);border-radius:7px;padding:19px;font-size:15px;line-height:1.6;color:#333}.prompt button{border:1px solid var(--line);background:white;border-radius:6px;padding:9px 13px;cursor:pointer}.prompt button:hover{border-color:var(--blue);color:var(--blue)}.steps{padding-left:22px;font-size:18px;line-height:1.8}.steps li{margin:8px 0}.steps code{background:#f5f5f5;padding:3px 5px;border-radius:4px}.note{padding:18px 22px;border-left:3px solid var(--blue);background:#f6faff}.note p{margin:0}.footer{padding:35px 0 55px;color:var(--muted);font-size:14px}.jump{display:flex;flex-wrap:wrap;gap:16px;margin:37px 0 70px}.jump a{font-size:15px}.strong{color:var(--ink);font-weight:600}@media(max-width:700px){.grid{grid-template-columns:1fr}.link-list li{display:block}.link-list small{display:block;text-align:left;margin-top:4px}.flow span{font-size:14px;padding:12px}section{padding:52px 0}}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff;color:var(--ink);font-family:Geist,Arial,sans-serif}a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}code,pre,.mono{font-family:"Geist Mono",ui-monospace,monospace}code{font-size:.92em}header,main,footer{width:min(1040px,calc(100% - 40px));margin:auto}header{display:flex;justify-content:space-between;align-items:center;padding:25px 0;border-bottom:1px solid var(--line)}header strong{font-size:19px;letter-spacing:-.04em}header a{font-size:14px}h1,h2,h3,p{margin-top:0}h1,h2,h3{letter-spacing:-.055em}h1{font-size:clamp(56px,9vw,106px);line-height:1;margin:70px 0 25px}h2{font-size:clamp(35px,5vw,54px);margin:0 0 22px}h3{font-size:25px;margin-bottom:10px}p{font-size:18px;line-height:1.5;color:var(--muted)}.lead{max-width:760px;font-size:23px}.eyebrow{font:13px "Geist Mono",monospace;color:var(--blue)}section{padding:70px 0;border-top:1px solid var(--line);scroll-margin-top:22px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.card{border:1px solid var(--line);border-radius:8px;padding:24px}.card h3{margin:0 0 8px}.card p{margin-bottom:0}.card a{font-weight:600}.flow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:28px}.flow span{padding:17px 21px;border:1px solid var(--line);border-radius:7px;font-weight:600}.flow b{font-size:24px;color:var(--blue)}.link-list{list-style:none;padding:0;margin:0}.link-list li{display:flex;justify-content:space-between;gap:20px;padding:17px 0;border-bottom:1px solid var(--line);font-size:18px}.link-list small{color:var(--muted);font-size:14px;text-align:right}.prompt{padding:24px 0;border-top:1px solid var(--line);scroll-margin-top:18px}.prompt h3{margin-bottom:10px}.prompt pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#fafafa;border:1px solid var(--line);border-radius:7px;padding:19px;font-size:15px;line-height:1.6;color:#333}.prompt button{border:1px solid var(--line);background:white;border-radius:6px;padding:9px 13px;cursor:pointer}.prompt button:hover{border-color:var(--blue);color:var(--blue)}.steps{padding-left:22px;font-size:18px;line-height:1.8}.steps li{margin:8px 0}.steps code{background:#f5f5f5;padding:3px 5px;border-radius:4px}.note{padding:18px 22px;border-left:3px solid var(--blue);background:#f6faff}.note p{margin:0}.footer{padding:35px 0 55px;color:var(--muted);font-size:14px}.jump{display:flex;flex-wrap:wrap;gap:16px;margin:37px 0 70px}.jump a{font-size:15px}.strong{color:var(--ink);font-weight:600}@media(max-width:700px){.grid{grid-template-columns:1fr}.link-list li{display:block}.link-list small{display:block;text-align:left;margin-top:4px}.flow span{font-size:14px;padding:12px}section{padding:52px 0}}
   </style>
 </head>
 <body>
 <header><a href="../" style="color:var(--ink)"><strong>Hack the Hill / Build with AI</strong></a><a href="../slides/">Slides ↗</a></header>
 <main>
   <h1>Build kit<span style="color:#0070f3">.</span></h1>
-  <p class="lead">Everything for the one-hour Next.js + Cloudflare Worker + D1 workshop. The slides stay sparse; the working code, prompts, and docs live here.</p>
-  <nav class="jump" aria-label="Page sections"><a href="#run">Run the demo</a><a href="#architecture">Architecture</a><a href="#prompts">AI prompts</a><a href="#learn">Official docs</a><a href="#verify">Verify it</a></nav>
+  <p class="lead">The starter, AI prompts, and docs for your next build.</p>
+  <nav class="jump" aria-label="Page sections"><a href="#starter">Get the starter</a><a href="#tools">AI tools</a><a href="#run">Run the demo</a><a href="#architecture">Architecture</a><a href="#prompts">AI prompts</a><a href="#learn">Official docs</a><a href="#verify">Verify it</a></nav>
+
+  <section id="starter">
+    <p class="eyebrow">Start here / npm package</p><h2>Your app, scaffolded.</h2>
+    <p><code>create-hth-app</code> includes Next.js, the Worker API, local D1, and instructions for Codex and Copilot. Use Node.js 22 or newer.</p>
+    <article class="prompt"><pre>npm exec --yes --package=https://github.com/Aditya-Baindur/hack-the-hill-nextjs-intro/releases/download/starter-v0.1.0/create-hth-app-0.1.0.tgz -- create-hth-app my-idea-board
+cd my-idea-board
+npm install
+npm run db:migrate
+npm run dev</pre><button type="button" data-copy-label="Copy setup">Copy setup</button></article>
+    <p>Open <a href="http://localhost:3000">localhost:3000</a>. One command starts both servers; Ctrl+C stops them. No Cloudflare account is needed for the local demo.</p>
+    <p><a href="https://github.com/Aditya-Baindur/hack-the-hill-nextjs-intro/releases/download/starter-v0.1.0/create-hth-app-0.1.0.tgz">Download npm package ↗</a> · <a href="https://github.com/Aditya-Baindur/hack-the-hill-nextjs-intro/tree/main/packages/create-hth-app">Package source ↗</a></p>
+  </section>
+
+  <section id="tools">
+    <p class="eyebrow">Your AI teammate</p><h2>Pick one. Start small.</h2>
+    <div class="grid">
+      <article class="card" id="codex"><h3>Codex</h3><p>Open the app folder in Codex, or launch <code>codex</code> there. Start with “Explain this app.” Then ask for one change and review the diff.</p><p><a href="https://learn.chatgpt.com/docs/cli">CLI setup ↗</a> · <a href="https://learn.chatgpt.com/docs/agent-configuration/agents-md">AGENTS.md ↗</a></p></article>
+      <article class="card" id="copilot"><h3>GitHub Copilot</h3><p>Open the folder in VS Code and sign in to Copilot. Use Ask to explain a file, then Agent to make a small edit. Review the result and run it.</p><p><a href="https://docs.github.com/en/copilot/get-started/quickstart-for-using-github-copilot-in-your-ide">IDE setup ↗</a></p></article>
+    </div>
+    <article class="prompt" id="prompt-extend"><h3>Try it with either tool</h3><pre>Read the project instructions and app/idea-board.tsx. Add a live character counter beside the idea input, using the existing 120-character limit. Keep the design minimal and leave the API unchanged. Explain the diff, run the relevant checks, and give me a browser check for typing, clearing, and submitting the form.</pre><button type="button">Copy prompt</button></article>
+  </section>
 
   <section id="demo">
     <p class="eyebrow">01 / Code</p><h2>The complete example</h2>
@@ -36,7 +57,8 @@
   </section>
 
   <section id="run">
-    <p class="eyebrow">03 / Run locally</p><h2>Two terminals</h2>
+    <p class="eyebrow">03 / Run locally</p><h2>Two ways to run</h2>
+    <p>With the <a href="#starter">starter package</a>, run <code>npm run dev</code> from your app folder. The commands below are for the original <code>demo/</code> in the workshop repository.</p>
     <div class="grid"><div class="card"><h3>Worker · :8787</h3><ol class="steps"><li><code>cd demo/worker</code></li><li><code>npm install</code></li><li><code>npm run db:migrate</code></li><li><code>npm run dev</code></li></ol></div><div class="card"><h3>Next.js · :3000</h3><ol class="steps"><li><code>cd demo</code></li><li><code>npm install</code></li><li><code>npm run dev</code></li><li>Open <a href="http://localhost:3000">localhost:3000</a></li></ol></div></div>
     <div class="note"><p>The Worker uses a local D1 database by default. The all-zero database ID in <code>wrangler.jsonc</code> is a local placeholder. To deploy, create a real D1 database, replace the ID, apply the migration with <code>--remote</code>, and deploy the Worker.</p></div>
   </section>
@@ -63,6 +85,8 @@
   <section id="learn">
     <p class="eyebrow">06 / Official docs</p><h2>Keep learning</h2>
     <ul class="link-list">
+      <li><a href="https://learn.chatgpt.com/docs/cli">Codex CLI ↗</a><small>Setup and coding workflow</small></li>
+      <li><a href="https://docs.github.com/en/copilot/get-started/quickstart-for-using-github-copilot-in-your-ide">GitHub Copilot ↗</a><small>IDE setup and first task</small></li>
       <li><a href="https://nextjs.org/learn">Next.js Learn ↗</a><small>Guided beginner lessons</small></li>
       <li><a href="https://nextjs.org/docs/app">Next.js App Router ↗</a><small>Routes and components</small></li>
       <li><a href="https://developers.cloudflare.com/workers/get-started/guide/">Workers guide ↗</a><small>Request, response, local dev</small></li>
@@ -84,8 +108,8 @@
       try {
         await navigator.clipboard.writeText(prompt);
         button.textContent = 'Copied';
-        setTimeout(() => button.textContent = 'Copy prompt', 1800);
-      } catch { button.textContent = 'Select the prompt above'; }
+        setTimeout(() => button.textContent = button.dataset.copyLabel || 'Copy prompt', 1800);
+      } catch { button.textContent = 'Select and copy the text above'; }
     });
   });
 </script>

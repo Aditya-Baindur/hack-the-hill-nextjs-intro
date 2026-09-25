@@ -2,6 +2,16 @@
 
 Use these one at a time. Give the assistant the relevant file or error output. Ask it to cite current official documentation when it makes a platform claim. Review the diff and run the app after every change.
 
+## Start with the generated app
+
+Use [Codex](https://learn.chatgpt.com/docs/cli) or [GitHub Copilot](https://docs.github.com/en/copilot/get-started/quickstart-for-using-github-copilot-in-your-ide) in the app folder. The package includes `AGENTS.md` and `.github/copilot-instructions.md` with the project context.
+
+> Read the project instructions. Explain how an idea travels from app/idea-board.tsx through worker/src/index.ts into D1. Name the files involved and the command that starts each layer. Do not change code yet.
+
+### First change: character counter
+
+> Read app/idea-board.tsx. Add a live character counter beside the idea input, using the existing 120-character limit. Keep the design minimal and leave the API unchanged. Explain the diff, run the relevant checks, and give me a browser check for typing, clearing, and submitting the form.
+
 ## 1. Plan the smallest app
 
 > You are my pair programmer for a beginner workshop. We have a Next.js App Router UI, a Cloudflare Worker API, and a D1 database. Plan the smallest hackathon idea board with GET /ideas and POST /ideas. Give me the file list, request flow, and one test for each step. Do not write code yet. Avoid extra services.

@@ -1,0 +1,10 @@
+node_modules/
+.next/
+*.tsbuildinfo
+.env*
+!.env.example
+.DS_Store
+worker/.wrangler/
+worker/worker-configuration.d.ts
+worker/.dev.vars*
+*.log

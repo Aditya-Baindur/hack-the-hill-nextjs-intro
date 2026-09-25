@@ -15,22 +15,44 @@ Use **← / →** to change slides, **N** for presenter notes, **R** for the cur
 | Time | Segment | Slides |
 | --- | --- | --- |
 | 0–17 min | What we are building; Next.js, Workers, D1 | 1–6 |
-| 17–30 min | AI-assisted planning, review, debugging | 7–11 |
-| 30–58 min | Live build: local D1, Worker API, Next.js UI, verify | 12–21 |
-| 58–60 min | Path to deployment and further resources | 22–23 |
+| 17–30 min | Codex, Copilot, prompting, review, debugging | 7–13 |
+| 30–58 min | Live build: local D1, Worker API, Next.js UI, verify | 14–24 |
+| 58–60 min | Path to deployment and further resources | 25–26 |
 
-AI remains part of the build after slide 11: ask for a schema review, draft the API, review the SQL, explain the client component, and diagnose an actual error. Each prompt is in [PROMPTS.md](PROMPTS.md) and on the resource page.
+AI remains part of the build after slide 13: ask for a schema review, draft the API, review the SQL, explain the client component, and diagnose an actual error. Each prompt is in [PROMPTS.md](PROMPTS.md) and on the resource page.
 
 Slide 2 includes a hands-on preview: add an idea, refresh, or reset the board. This preview saves only in your browser; the full Next.js + Worker demo below uses D1. If browser storage is unavailable, the preview keeps ideas for the current page session and says so.
 
 ## Before the talk
 
-1. Have Node.js 20.9 or newer, a code editor, two terminals, and an AI coding assistant ready. A Cloudflare account is optional for the **local** demo.
+1. Have Node.js 22 or newer, a code editor, a terminal, and Codex or GitHub Copilot ready. A Cloudflare account is optional for the **local** demo.
 2. Run the commands below before the lecture. Keep the complete demo available as a fallback if installation or Wi-Fi is slow.
 3. Open the [slides](https://hth.byaditya.com/slides/), [resources](https://hth.byaditya.com/resources/), `http://localhost:3000`, and `http://localhost:8787/ideas` in browser tabs.
 4. Keep the D1 database local during the timed build. Remote D1 needs a separate database and migration.
 
-## Run the demo locally
+## Create your app with the npm package
+
+The workshop starter ships a working Next.js UI, Worker GET/POST API, D1 migration, local development scripts, and project instructions for Codex and Copilot. It creates a new app folder without installing dependencies or changing existing files.
+
+```sh
+npm exec --yes --package=https://github.com/Aditya-Baindur/hack-the-hill-nextjs-intro/releases/download/starter-v0.1.0/create-hth-app-0.1.0.tgz -- create-hth-app my-idea-board
+cd my-idea-board
+npm install
+npm run db:migrate
+npm run dev
+```
+
+Open <http://localhost:3000>. The same development command starts the Worker at <http://localhost:8787>; Ctrl+C stops both. The package is distributed as an npm tarball on [GitHub Releases](https://github.com/Aditya-Baindur/hack-the-hill-nextjs-intro/releases/tag/starter-v0.1.0). Registry publication is pending npm sign-in; the command above works without that publication.
+
+See [package source and publishing instructions](packages/create-hth-app/README.md). In the generated app, paths start at `app/` and `worker/`. The original fallback below keeps its `demo/` prefix.
+
+## Codex and GitHub Copilot
+
+- **Codex:** Open the app folder or run `codex` inside it. Ask it to explain the request flow, then make one small change. The starter includes `AGENTS.md`. [Official CLI guide](https://learn.chatgpt.com/docs/cli).
+- **GitHub Copilot:** Open the folder in VS Code, sign in, use Ask to explain code, and Agent to change it. The starter includes `.github/copilot-instructions.md`. [Official IDE guide](https://docs.github.com/en/copilot/get-started/quickstart-for-using-github-copilot-in-your-ide).
+- **Live task:** Ask either tool to add a live character counter to the idea input. Review the diff and check typing, clearing, and submission. Use one assistant during the timed build.
+
+## Run the original demo locally
 
 From this repository's root, use two terminals:
 
@@ -55,10 +77,10 @@ The local Worker uses the D1 database configured in `demo/worker/wrangler.jsonc`
 
 | Minute | Show | AI involvement |
 | --- | --- | --- |
-| 30–34 | Run Worker and Next.js in two terminals | Ask for a file map if attendees are lost |
+| 30–34 | Generate the starter, migrate D1, run both servers | Ask for a file map if attendees are lost |
 | 34–39 | Inspect and apply the D1 migration | Ask AI to explain constraints; verify against SQL |
 | 39–47 | Read the binding, GET, POST, and `.bind(title)` | Ask AI to draft/review one handler |
-| 47–55 | Connect the Next.js form with fetch and state | Ask AI to explain client code and review errors |
+| 47–55 | Trace fetch/state; add a character counter | Ask AI to explain, edit, and verify one component |
 | 55–58 | Add, refresh, and query the Worker directly | Give AI exact failure output if anything breaks |
 
 Check the API independently with `curl http://localhost:8787/ideas`. A blank title should produce a 400 response. The Worker source is in `demo/worker/src/index.ts`; the React client is in `demo/app/idea-board.tsx`.
