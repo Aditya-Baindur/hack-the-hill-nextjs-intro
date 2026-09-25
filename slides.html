@@ -4,77 +4,132 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#ffffff" />
-  <meta name="description" content="A beginner-friendly Next.js workshop for Hack the Hill: 15 minutes of concepts and 15 minutes of live building." />
+  <meta name="description" content="A one-hour beginner workshop on Next.js, Cloudflare Workers, D1, and building with AI." />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Next.js from zero · Hack the Hill" />
-  <meta property="og:description" content="15 minutes of concepts, then 15 minutes building an idea board." />
+  <meta property="og:title" content="Build with AI · Next.js + Cloudflare · Hack the Hill" />
+  <meta property="og:description" content="One hour: build an idea board with Next.js, a Cloudflare Worker, D1, and AI-assisted development." />
   <meta property="og:image" content="https://aditya-baindur.github.io/hack-the-hill-nextjs-intro/assets/og.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://aditya-baindur.github.io/hack-the-hill-nextjs-intro/assets/og.png" />
-  <title>Next.js from zero · Hack the Hill</title>
+  <title>Build with AI · Next.js + Cloudflare · Hack the Hill</title>
   <link rel="stylesheet" href="./assets/slides.css" />
   <script defer src="./assets/slides.js"></script>
 </head>
 <body>
-<main id="stage" aria-label="Intro to Next.js slide deck">
-  <section class="slide cover active" data-title="Next.js from zero">
-    <div class="cover-grid" aria-hidden="true"></div><div class="slide-inner cover-content"><span class="cover-label">Hack the Hill</span><h1>Next.js<br><span class="accent">from zero.</span></h1><div class="cover-timing"><span>15 min · learn</span><span>15 min · build</span></div></div>
-    <aside class="speaker-note"><p><b>0:00–1:00.</b> Ask who has built a web page and who has used React. This is beginner-friendly: attendees can follow along or watch and try the backup source afterward. The app has no database.</p></aside>
+<main id="stage" aria-label="Next.js, Workers, D1, and AI workshop slides">
+  <section class="slide cover active" data-title="Build with AI" data-resource-url="./resources.html" aria-label="Build with AI">
+    <div class="cover-grid" aria-hidden="true"></div><div class="slide-inner cover-content"><span class="cover-label">Hack the Hill · 60 min</span><h1>Build<br><span class="accent">with AI.</span></h1><div class="cover-timing">Next.js <span>→</span> Worker <span>→</span> D1</div></div>
+    <aside class="speaker-note"><p><b>0:00–2:00.</b> This is a beginner workshop. We will build a tiny idea board together: Next.js draws the interface, a Cloudflare Worker handles requests, and D1 saves ideas. AI will help us plan, write, review, and debug code. You still decide what the app should do and verify the result.</p><p>Open the <a href="./resources.html">resource pack</a> before the talk and share it with attendees.</p></aside>
   </section>
 
-  <section class="slide" data-title="What we will build">
-    <div class="slide-inner preview-layout"><h2>Build<br>this.</h2><div class="browser-frame" aria-label="Idea board preview"><div class="browser-top"><i></i><i></i><i></i></div><div class="browser-body"><strong>Idea board</strong><div class="preview-line"></div><div class="preview-line short"></div><div class="preview-form"><span></span><b>+</b></div></div></div></div>
-    <aside class="speaker-note"><p><b>1:00–2:30.</b> Show the completed backup app if convenient. Point out the list, input, and About link. Ideas live only in browser memory and reset on refresh.</p></aside>
+  <section class="slide" data-title="The destination" data-resource-url="./resources.html#demo" aria-label="The destination">
+    <div class="slide-inner preview-layout"><h2>Save<br>ideas.</h2><div class="browser-frame" aria-label="Idea board preview"><div class="browser-top"><i></i><i></i><i></i></div><div class="browser-body"><strong>Idea board</strong><div class="preview-line"></div><div class="preview-line short"></div><div class="preview-form"><span></span><b>+</b></div><div class="stored-mark">D1 ✓</div></div></div></div>
+    <aside class="speaker-note"><p><b>2:00–5:00.</b> Show the finished local demo if it is running. Add an idea, refresh, and show that it remains. Ask the room where they think that idea lives. It is in D1, not browser memory. Keep the outcome concrete before introducing the stack.</p><p><a href="./resources.html#demo">Demo setup and code</a>.</p></aside>
   </section>
 
-  <section class="slide" data-title="What Next.js adds">
-    <div class="slide-inner concept-layout"><div><strong>React</strong><span>UI</span></div><div><strong class="accent">Next.js</strong><span>APP</span></div></div>
-    <aside class="speaker-note"><p><b>2:30–5:00.</b> A React component is a function that returns interface. Next.js provides conventions around it. Keep this conceptual; skip caching and deployment internals.</p><p>[Sources] <a href="https://nextjs.org/docs/app">Next.js App Router documentation</a>.</p></aside>
+  <section class="slide" data-title="Request flow" data-resource-url="./resources.html#architecture" aria-label="Request flow">
+    <div class="slide-inner flow-layout"><div>Browser</div><span>→</span><div>Next.js UI</div><span>→</span><div>Worker</div><span>→</span><div class="flow-end">D1</div></div>
+    <aside class="speaker-note"><p><b>5:00–8:00.</b> Follow one click: the browser shows the Next.js interface; its client component sends an HTTP request to the Worker; the Worker queries D1; JSON comes back to update the page. This separation makes each piece easy to explain and test.</p><p><a href="./resources.html#architecture">Architecture diagram and links</a>.</p></aside>
   </section>
 
-  <section class="slide" data-title="Routes are files">
-    <div class="slide-inner route-layout"><div class="route-title">Files <span>→</span> URLs</div><div class="route-row"><code>app/page.tsx</code><span>→</span><strong>/</strong></div><div class="route-row"><code>app/about/page.tsx</code><span>→</span><strong>/about</strong></div></div>
-    <aside class="speaker-note"><p><b>5:00–7:30.</b> Point from the folder tree to the URLs. The root layout wraps pages. If attendees know React Router, explain that Next.js has a built-in file convention.</p><p>[Sources] <a href="https://nextjs.org/docs/app/getting-started/layouts-and-pages">Next.js: Layouts and Pages</a>.</p></aside>
+  <section class="slide" data-title="Next.js" data-resource-url="https://nextjs.org/docs/app" aria-label="Next.js">
+    <div class="slide-inner focus-layout"><strong>Next.js</strong><span>UI + routes</span><code>app/page.tsx <i>→</i> /</code></div>
+    <aside class="speaker-note"><p><b>8:00–11:00.</b> A Next.js App Router page is a React component in a file. The file <code>app/page.tsx</code> serves the home URL. Our idea board has state and a form, so it is a Client Component. Keep the distinction practical: the page gives structure; the client component handles clicks.</p><p><a href="https://nextjs.org/docs/app">Next.js App Router docs</a> · <a href="https://nextjs.org/docs/app/getting-started/server-and-client-components">Server and Client Components</a>.</p></aside>
   </section>
 
-  <section class="slide" data-title="Server and client components">
-    <div class="slide-inner boundary-layout"><div class="boundary-card"><strong>Server</strong><span>default</span></div><div class="boundary-arrow">→</div><div class="boundary-card client"><strong>Client</strong><code>"use client"</code></div></div>
-    <aside class="speaker-note"><p><b>7:30–11:00.</b> Pages and layouts are Server Components by default. They can render Client Components. Put <code>"use client"</code> at the top of a file when it needs React state, event handlers, or browser APIs. Client Components can still be pre-rendered to HTML; the boundary says where interactivity lives.</p><p>[Sources] <a href="https://nextjs.org/docs/app/getting-started/server-and-client-components">Next.js: Server and Client Components</a>.</p></aside>
+  <section class="slide" data-title="Cloudflare Worker" data-resource-url="https://developers.cloudflare.com/workers/get-started/guide/" aria-label="Cloudflare Worker">
+    <div class="slide-inner focus-layout"><strong>Worker</strong><span>HTTP API</span><code>GET /ideas <i>·</i> POST /ideas</code></div>
+    <aside class="speaker-note"><p><b>11:00–14:00.</b> A Worker is code that receives a Request and returns a Response. Our Worker has two routes: GET lists ideas, POST saves one. The browser never talks to D1 directly. Point out that the Worker can validate input and hold resource bindings.</p><p><a href="https://developers.cloudflare.com/workers/get-started/guide/">Workers getting started</a>.</p></aside>
   </section>
 
-  <section class="slide" data-title="The build plan">
-    <div class="slide-inner recap-layout"><h2>That’s the app.</h2><div class="recap-grid"><div><span>/</span><strong>Route</strong></div><div><span>&lt;/&gt;</span><strong>Component</strong></div><div><span>+</span><strong>State</strong></div></div></div>
-    <aside class="speaker-note"><p><b>11:00–15:00.</b> Recap and take a couple of questions. Move to the build at minute 15 even if questions remain.</p><p>[Sources] <a href="https://nextjs.org/docs/app/getting-started/layouts-and-pages">Layouts and Pages</a>; <a href="https://nextjs.org/docs/app/getting-started/server-and-client-components">Server and Client Components</a>.</p></aside>
+  <section class="slide" data-title="Cloudflare D1" data-resource-url="https://developers.cloudflare.com/d1/get-started/" aria-label="Cloudflare D1">
+    <div class="slide-inner data-layout"><strong>D1</strong><span>SQL database</span><div class="tiny-table"><div><b>id</b><b>title</b></div><div><i>1</i><i>Campus food map</i></div><div><i>2</i><i>Study buddy finder</i></div></div></div>
+    <aside class="speaker-note"><p><b>14:00–17:00.</b> D1 is the SQL database for this example. We create an <code>ideas</code> table with an integer ID and text title. A binding named <code>DB</code> gives the Worker access via <code>env.DB</code>. Use a prepared statement for user input rather than placing input into SQL text.</p><p><a href="https://developers.cloudflare.com/d1/get-started/">D1 getting started</a> · <a href="https://developers.cloudflare.com/d1/worker-api/prepared-statements/">Prepared statements</a>.</p></aside>
   </section>
 
-  <section class="slide section-dark" data-title="Let's build">
-    <div class="slide-inner build-title"><h1>Let’s build<span class="accent">.</span></h1></div>
-    <aside class="speaker-note"><p><b>15:00.</b> Switch from slides to the editor and terminal. Use the already scaffolded backup if venue Wi-Fi is slow.</p></aside>
+  <section class="slide section-blue" data-title="AI in the loop" data-resource-url="./resources.html#ai" aria-label="AI in the loop">
+    <div class="slide-inner transition-title"><h1>AI in<br>the loop<span>.</span></h1></div>
+    <aside class="speaker-note"><p><b>17:00–18:00.</b> AI is part of the build workflow, not an extra button in the app. It can draft repetitive code and explain errors quickly. The developer provides context, checks behavior, and owns the final decision. From this point on, show an AI prompt at each implementation checkpoint.</p><p><a href="./resources.html#ai">AI workflow resources</a>.</p></aside>
   </section>
 
-  <section class="slide" data-title="Create the app">
-    <div class="slide-inner command-layout"><div class="command-line"><span>$</span><code>npx create-next-app@latest hack-ideas --yes</code></div><div class="command-line"><span>$</span><code>cd hack-ideas</code></div><div class="command-line"><span>$</span><code>npm run dev</code></div></div>
-    <aside class="speaker-note"><p><b>15:00–17:00.</b> Type the three commands on screen: scaffold, change directory, then start the dev server. Pre-scaffold the project before the talk. The current defaults include TypeScript and the App Router. Saved CLI preferences may differ; if the scaffold uses <code>src/app/</code>, use that directory. Check <code>node -v</code> beforehand.</p><p>[Sources] <a href="https://nextjs.org/docs/app/getting-started/installation">Next.js: Installation</a>.</p></aside>
+  <section class="slide" data-title="Prompt recipe" data-resource-url="./resources.html#prompt-plan" aria-label="Prompt recipe">
+    <div class="slide-inner process-layout"><div>Context</div><span>→</span><div>Task</div><span>→</span><div>Checks</div></div>
+    <aside class="speaker-note"><p><b>18:00–21:00.</b> Explain prompt structure: give the stack and learner level; state one specific task; ask for the tests or checks that would prove it works. Example: “We have a Next.js App Router UI, a Cloudflare Worker, and D1. Plan a beginner idea board with GET and POST. Give the smallest file list and verification steps. No code yet.”</p><p><a href="./resources.html#prompt-plan">Copy the planning prompt</a> · <a href="https://developers.cloudflare.com/workers/get-started/prompting/">Cloudflare prompting guide</a>.</p></aside>
   </section>
 
-  <section class="slide" data-title="Make the homepage">
-    <div class="slide-inner file-layout"><code>app/page.tsx</code><span>→</span><strong>/</strong></div>
-    <aside class="speaker-note"><p><b>17:00–19:00.</b> Replace the starter <code>app/page.tsx</code>. The import will error until the next step creates <code>idea-board.tsx</code>; say so. JSX is HTML-like markup returned from a JavaScript function.</p><p>[Sources] <a href="https://nextjs.org/docs/app/getting-started/layouts-and-pages">Next.js: Layouts and Pages</a>.</p></aside>
+  <section class="slide" data-title="Ask AI to plan" data-resource-url="./resources.html#prompt-plan" aria-label="Ask AI to plan">
+    <div class="slide-inner ai-plan-layout"><div class="chat-question">Plan this app.</div><div class="chat-answer"><span>Files</span><span>Steps</span><span>Risks</span></div></div>
+    <aside class="speaker-note"><p><b>21:00–24:00.</b> Paste the planning prompt into your preferred coding assistant. Ask for a short file map, not a giant code dump. Compare its plan with our architecture. If it adds auth, an ORM, queues, or other infrastructure, ask it to simplify for a one-hour beginner lesson.</p><p><a href="./resources.html#prompt-plan">Planning prompt</a> · <a href="https://docs.github.com/en/copilot/concepts/prompting/prompt-engineering">GitHub Copilot prompting guidance</a>.</p></aside>
   </section>
 
-  <section class="slide" data-title="Render ideas">
-    <div class="slide-inner list-layout"><code>ideas.map(...)</code><div class="idea-list"><div><span>01</span>Campus food map</div><div><span>02</span>Study buddy finder</div></div></div>
-    <aside class="speaker-note"><p><b>19:00–22:00.</b> Copy <code>demo/steps/idea-board-static.tsx</code> into <code>app/idea-board.tsx</code>. Show the array and <code>map</code>, then confirm the list renders.</p><p>[Sources] <a href="https://react.dev/learn/rendering-lists">React: Rendering Lists</a>.</p></aside>
+  <section class="slide" data-title="Review AI output" data-resource-url="./resources.html#prompt-review" aria-label="Review AI output">
+    <div class="slide-inner review-layout"><h2>Read<br>the diff.</h2><div><span>Inputs</span><span>SQL</span><span>Errors</span></div></div>
+    <aside class="speaker-note"><p><b>24:00–27:00.</b> Ask AI for one file at a time. Review the result: Does POST reject empty or huge titles? Does SQL use <code>bind</code>? Does the UI show loading and errors? Do local and remote D1 commands target the intended database? Read its diff, then run the app. Never paste secrets into a chat or put them in a public client variable.</p><p><a href="./resources.html#prompt-review">Review prompt</a> · <a href="https://developers.cloudflare.com/d1/worker-api/prepared-statements/">D1 parameter binding</a>.</p></aside>
   </section>
 
-  <section class="slide" data-title="Make it interactive">
+  <section class="slide" data-title="Debug with AI" data-resource-url="./resources.html#prompt-debug" aria-label="Debug with AI">
+    <div class="slide-inner debug-layout"><div>Error</div><span>→</span><div>Hypothesis</div><span>→</span><div>Test</div></div>
+    <aside class="speaker-note"><p><b>27:00–30:00.</b> When something breaks, give AI the exact command, error, expected behavior, and relevant files. Ask for a probable cause and the smallest confirming test before changing code. Demo with a safe example: a migration was applied locally, but a remote Worker reads a separate remote database. The fix is to identify the target and apply the migration there, not to rewrite the UI.</p><p><a href="./resources.html#prompt-debug">Debugging prompt</a>.</p></aside>
+  </section>
+
+  <section class="slide section-dark" data-title="Let&#x27;s build" data-resource-url="./resources.html#run" aria-label="Let&#x27;s build">
+    <div class="slide-inner transition-title"><h1>Let’s<br>build<span class="accent">.</span></h1></div>
+    <aside class="speaker-note"><p><b>30:00–31:00.</b> Switch to the editor and two terminals. The repo contains a complete fallback under <code>demo/</code>. Tell attendees they can follow the steps or watch and use the source afterward.</p><p><a href="./resources.html#run">Run instructions</a>.</p></aside>
+  </section>
+
+  <section class="slide" data-title="Two local servers" data-resource-url="./resources.html#run" aria-label="Two local servers">
+    <div class="slide-inner service-layout"><div><strong>Worker</strong><span>:8787</span></div><div><strong>Next.js</strong><span>:3000</span></div></div>
+    <aside class="speaker-note"><p><b>31:00–34:00.</b> Terminal one: <code>cd demo/worker</code>, <code>npm install</code>, <code>npm run db:migrate</code>, <code>npm run dev</code>. Terminal two: <code>cd demo</code>, <code>npm install</code>, <code>npm run dev</code>. Use the preinstalled fallback if downloads are slow. The D1 migration and Worker use local state.</p><p><a href="./resources.html#run">Full commands</a> · <a href="https://developers.cloudflare.com/d1/best-practices/local-development/">D1 local development</a>.</p></aside>
+  </section>
+
+  <section class="slide" data-title="Create the schema" data-resource-url="https://developers.cloudflare.com/d1/reference/migrations/" aria-label="Create the schema">
+    <div class="slide-inner schema-layout"><code>CREATE TABLE ideas</code><div><span>id</span><span>title</span></div></div>
+    <aside class="speaker-note"><p><b>34:00–37:00.</b> Open <code>demo/worker/migrations/0001_create_ideas.sql</code>. The title is required and limited to 1–120 characters; the migration seeds two sample ideas. Ask AI: “Review this D1 migration for missing constraints and explain each line in beginner language.” Then compare its explanation to the actual SQL.</p><p><a href="https://developers.cloudflare.com/d1/reference/migrations/">D1 migrations</a> · <a href="./resources.html#prompt-schema">Schema prompt</a>.</p></aside>
+  </section>
+
+  <section class="slide" data-title="Apply the migration" data-resource-url="https://developers.cloudflare.com/d1/best-practices/local-development/" aria-label="Apply the migration">
+    <div class="slide-inner migration-layout"><code>npm run db:migrate</code><span>local D1</span></div>
+    <aside class="speaker-note"><p><b>37:00–39:00.</b> Run the local migration. Explain that <code>--local</code> in the script matters. The command creates the table in Wrangler’s local D1 state; it does not update a deployed database. For the live demo, let attendees see the migration success output.</p><p><a href="https://developers.cloudflare.com/d1/best-practices/local-development/">Local D1 guide</a>.</p></aside>
+  </section>
+
+  <section class="slide" data-title="D1 binding" data-resource-url="https://developers.cloudflare.com/workers/runtime-apis/bindings/" aria-label="D1 binding">
+    <div class="slide-inner binding-layout"><code>env.DB</code><span>→</span><strong>D1</strong></div>
+    <aside class="speaker-note"><p><b>39:00–41:00.</b> Open <code>demo/worker/wrangler.jsonc</code> and <code>src/index.ts</code>. The config gives the database binding the name <code>DB</code>, and the Worker reads it as <code>env.DB</code>. The all-zero database ID is only a local placeholder. Before remote deployment, create a D1 database and replace that ID. The code uses generated Wrangler types.</p><p><a href="https://developers.cloudflare.com/workers/runtime-apis/bindings/">Workers bindings</a>.</p></aside>
+  </section>
+
+  <section class="slide" data-title="GET and POST" data-resource-url="https://developers.cloudflare.com/workers/get-started/guide/" aria-label="GET and POST">
+    <div class="slide-inner endpoints-layout"><div><span>GET</span><code>/ideas</code></div><div><span>POST</span><code>/ideas</code></div></div>
+    <aside class="speaker-note"><p><b>41:00–45:00.</b> In <code>demo/worker/src/index.ts</code>, point to the two branches. GET reads rows; POST validates the title and inserts a row. Let AI draft a small handler using the prompt pack, then compare its output to the checked-in source. Show the <code>OPTIONS</code> response and CORS header only if a browser error appears.</p><p><a href="./resources.html#prompt-worker">Worker prompt</a> · <a href="https://developers.cloudflare.com/workers/get-started/guide/">Workers guide</a>.</p></aside>
+  </section>
+
+  <section class="slide" data-title="Prepared SQL" data-resource-url="https://developers.cloudflare.com/d1/worker-api/prepared-statements/" aria-label="Prepared SQL">
+    <div class="slide-inner sql-layout"><code>INSERT INTO ideas (title)</code><code>VALUES <b>(?)</b></code></div>
+    <aside class="speaker-note"><p><b>45:00–47:00.</b> The question mark is a parameter. The Worker calls <code>.bind(title)</code> to keep submitted text out of the SQL structure. This is the line to check especially carefully in AI-generated code. Ask a volunteer what might happen if we inserted raw user text into a SQL string.</p><p><a href="https://developers.cloudflare.com/d1/worker-api/prepared-statements/">D1 prepared statements</a> · <a href="./resources.html#prompt-review">AI review prompt</a>.</p></aside>
+  </section>
+
+  <section class="slide" data-title="Fetch ideas" data-resource-url="https://nextjs.org/docs/app/getting-started/server-and-client-components" aria-label="Fetch ideas">
+    <div class="slide-inner fetch-layout"><code>fetch(API + "/ideas")</code><span>→</span><strong>IdeaBoard</strong></div>
+    <aside class="speaker-note"><p><b>47:00–51:00.</b> Open <code>demo/app/idea-board.tsx</code>. <code>"use client"</code> permits <code>useEffect</code> and <code>useState</code>. On mount, the component calls the Worker and renders the returned ideas. The public Worker URL is configurable through <code>NEXT_PUBLIC_API_URL</code>; that value is visible to the browser, so never place a secret there. Ask AI to explain why the fetch belongs in a Client Component for this specific demo.</p><p><a href="./resources.html#prompt-next">Next.js prompt</a> · <a href="https://nextjs.org/docs/app/getting-started/server-and-client-components">Client Components</a>.</p></aside>
+  </section>
+
+  <section class="slide" data-title="Save an idea" data-resource-url="https://react.dev/reference/react/useState" aria-label="Save an idea">
     <div class="slide-inner state-layout"><code>useState()</code><span class="state-arrow">→</span><div class="state-form"><div></div><b>+</b></div></div>
-    <aside class="speaker-note"><p><b>22:00–26:00.</b> Replace the static component with <code>demo/app/idea-board.tsx</code>. Show the new directive, state, form, and handler. <code>preventDefault</code> stops a page reload. The data resets on refresh because it is only in React state.</p><p>[Sources] <a href="https://nextjs.org/docs/app/getting-started/server-and-client-components">Next.js: Server and Client Components</a>; <a href="https://react.dev/reference/react/useState">React: useState</a>.</p></aside>
+    <aside class="speaker-note"><p><b>51:00–55:00.</b> Type an idea and submit. The form sends POST to the Worker, then adds the returned row to React state and clears the input. Point out the loading and error states. Ask AI to review the component for duplicate submissions, missing validation, and inaccessible status messages. Then verify in the browser.</p><p><a href="./resources.html#prompt-next">Next.js prompt</a> · <a href="https://react.dev/reference/react/useState">React useState</a>.</p></aside>
   </section>
 
-  <section class="slide" data-title="Add a route and keep going">
-    <div class="slide-inner final-layout"><div class="file-layout"><code>app/about/page.tsx</code><span>→</span><strong>/about</strong></div><p>Your turn<span class="accent">.</span></p></div>
-    <aside class="speaker-note"><p><b>26:00–30:00.</b> Add the route folder and a home-page <code>Link</code>. Point out the URL, then recap: route file, React component, client boundary. Suggest the stretch challenge and take one question if time allows. The backup app has a fuller About page and styles.</p><p>[Sources] <a href="https://nextjs.org/docs/app/getting-started/layouts-and-pages">Next.js: Layouts and Pages</a>; <a href="https://nextjs.org/learn">Next.js Learn</a>.</p></aside>
+  <section class="slide" data-title="Verify persistence" data-resource-url="./resources.html#verify" aria-label="Verify persistence">
+    <div class="slide-inner persist-layout"><div>Add</div><span>→</span><div>Refresh</div><span>→</span><div class="persist-result">Still there.</div></div>
+    <aside class="speaker-note"><p><b>55:00–58:00.</b> Refresh and show that the added idea remains. Run <code>curl http://localhost:8787/ideas</code> so the audience sees the same data without Next.js. If the UI fails, use the AI debugger prompt with the browser error and Worker logs. The successful read after refresh proves this is persistence, not just client state.</p><p><a href="./resources.html#verify">Verification checklist</a>.</p></aside>
+  </section>
+
+  <section class="slide" data-title="Local to live" data-resource-url="https://developers.cloudflare.com/d1/get-started/" aria-label="Local to live">
+    <div class="slide-inner ship-layout"><div>Local</div><span>→</span><div>Cloudflare</div></div>
+    <aside class="speaker-note"><p><b>58:00–59:00.</b> Explain the remote path, without rushing a live deployment: create a real D1 database, put its ID into <code>wrangler.jsonc</code>, apply migrations with <code>--remote</code>, then deploy the Worker. Set the Next.js public API URL to that Worker URL and deploy the frontend using a supported Next.js host. Local D1 rows do not appear remotely.</p><p><a href="https://developers.cloudflare.com/d1/get-started/">D1 setup</a> · <a href="https://developers.cloudflare.com/workers/framework-guides/web-apps/nextjs/">Next.js on Cloudflare</a>.</p></aside>
+  </section>
+
+  <section class="slide" data-title="Resources" data-resource-url="./resources.html" aria-label="Resources">
+    <div class="slide-inner resources-layout"><h2>Keep<br>building.</h2><div><a href="./resources.html#learn">Docs ↗</a><a href="./resources.html#prompts">Prompts ↗</a><a href="./resources.html#demo">Code ↗</a></div></div>
+    <aside class="speaker-note"><p><b>59:00–60:00.</b> Share <a href="./resources.html">the resources page</a>. Invite attendees to add a vote button or, as a stretch, add an AI idea suggestion using Workers AI. The checked-in demo and prompts let them repeat the build. Close with one question if time allows.</p><p><a href="https://developers.cloudflare.com/workers-ai/get-started/">Workers AI extension</a>.</p></aside>
   </section>
 </main>
 <div id="notes" role="dialog" aria-label="Presenter notes"></div>

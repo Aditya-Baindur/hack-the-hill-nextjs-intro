@@ -27,6 +27,8 @@ a:hover { text-decoration: underline; }
 .form-row input:focus { outline: 2px solid #9bc0ff; outline-offset: 1px; }
 .form-row button { border: 0; border-radius: 8px; background: #286de8; color: #fff; padding: 13px 19px; font: inherit; font-weight: 700; cursor: pointer; }
 .form-row button:hover { background: #1858ca; }
+.form-row button:disabled { opacity: .6; cursor:wait; }
+.error { color: #ad2525; font-size: 15px; }
 .footnote { margin: 14px 0 0; color: #69727e; font-size: 14px; }
 code { background: #eaf2ff; padding: 2px 5px; border-radius: 4px; }
 

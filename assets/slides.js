@@ -4,6 +4,15 @@ let current = Number.parseInt(location.hash.slice(1), 10) - 1;
 if (!Number.isFinite(current) || current < 0 || current >= slides.length) current = 0;
 
 slides.forEach((slide, index) => {
+  const resource = document.createElement("a");
+  resource.className = "slide-resource";
+  resource.href = slide.dataset.resourceUrl || "./resources.html";
+  resource.target = "_blank";
+  resource.rel = "noopener noreferrer";
+  resource.setAttribute("aria-label", `Resource for ${slide.dataset.title}`);
+  resource.textContent = "↗";
+  slide.append(resource);
+
   const actions = document.createElement("nav");
   actions.className = "slide-actions";
   actions.setAttribute("aria-label", "Slide controls");
@@ -42,6 +51,7 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "Home") show(0);
   if (event.key === "End") show(slides.length - 1);
   if (event.key.toLowerCase() === "n") notes.classList.toggle("open");
+  if (event.key.toLowerCase() === "r") slides[current].querySelector(".slide-resource")?.click();
   if (event.key.toLowerCase() === "f") {
     if (document.fullscreenElement) document.exitFullscreen();
     else document.documentElement.requestFullscreen();

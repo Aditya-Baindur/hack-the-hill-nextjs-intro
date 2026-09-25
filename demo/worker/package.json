@@ -1,0 +1,17 @@
+{
+  "name": "hack-the-hill-ideas-worker",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev --port 8787",
+    "db:migrate": "wrangler d1 migrations apply hack-ideas --local",
+    "db:migrate:remote": "wrangler d1 migrations apply hack-ideas --remote",
+    "types": "wrangler types",
+    "typecheck": "wrangler types && tsc --noEmit",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2",
+    "wrangler": "4.139.0"
+  }
+}

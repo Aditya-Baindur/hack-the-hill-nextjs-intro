@@ -12,7 +12,7 @@ export default function Home() {
       <header className="hero">
         <p className="eyebrow">YOUR WEEKEND STARTS HERE</p>
         <h1>Hackathon idea board</h1>
-        <p>Keep a small list of things you could build this weekend.</p>
+        <p>Next.js UI. Cloudflare Worker API. Ideas saved in D1.</p>
       </header>
 
       <IdeaBoard />

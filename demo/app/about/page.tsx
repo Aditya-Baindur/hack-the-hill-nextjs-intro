@@ -11,8 +11,8 @@ export default function About() {
         <p className="eyebrow">ABOUT THIS DEMO</p>
         <h1>One folder, one more page.</h1>
         <p>
-          This URL comes from <code>app/about/page.tsx</code>. The idea board on
-          the homepage is a Client Component because its form uses state.
+          This URL comes from <code>app/about/page.tsx</code>. The idea board
+          calls a Cloudflare Worker, which saves each idea in D1.
         </p>
       </header>
     </main>
