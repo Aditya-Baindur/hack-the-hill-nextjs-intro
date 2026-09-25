@@ -4,15 +4,11 @@ let current = Number.parseInt(location.hash.slice(1), 10) - 1;
 if (!Number.isFinite(current) || current < 0 || current >= slides.length) current = 0;
 
 slides.forEach((slide, index) => {
-  const header = document.createElement("header");
-  header.className = "slide-head";
-  header.innerHTML = `<div class="head-right">Hack the Hill</div>`;
-  slide.prepend(header);
-
-  const footer = document.createElement("footer");
-  footer.className = "slide-foot";
-  footer.innerHTML = `<span class="slide-count">${String(index + 1).padStart(2, "0")} / ${String(slides.length).padStart(2, "0")}</span><div class="foot-actions"><button type="button" data-nav="prev" aria-label="Previous slide">←</button><button type="button" data-nav="notes" aria-label="Presenter notes">i</button><button type="button" data-nav="next" aria-label="Next slide">→</button></div>`;
-  slide.append(footer);
+  const actions = document.createElement("nav");
+  actions.className = "slide-actions";
+  actions.setAttribute("aria-label", "Slide controls");
+  actions.innerHTML = `<button type="button" data-nav="prev" aria-label="Previous slide">←</button><button type="button" data-nav="notes" aria-label="Presenter notes">i</button><button type="button" data-nav="next" aria-label="Next slide">→</button>`;
+  slide.append(actions);
 
   const progress = document.createElement("div");
   progress.className = "progress";

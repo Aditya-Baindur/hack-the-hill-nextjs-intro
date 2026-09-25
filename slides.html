@@ -6,74 +6,74 @@
   <meta name="theme-color" content="#ffffff" />
   <meta name="description" content="A beginner-friendly Next.js workshop for Hack the Hill: 15 minutes of concepts and 15 minutes of live building." />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Build your first Next.js app · Hack the Hill" />
+  <meta property="og:title" content="Next.js from zero · Hack the Hill" />
   <meta property="og:description" content="15 minutes of concepts, then 15 minutes building an idea board." />
   <meta property="og:image" content="https://aditya-baindur.github.io/hack-the-hill-nextjs-intro/assets/og.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://aditya-baindur.github.io/hack-the-hill-nextjs-intro/assets/og.png" />
-  <title>Build your first Next.js app · Hack the Hill</title>
+  <title>Next.js from zero · Hack the Hill</title>
   <link rel="stylesheet" href="./assets/slides.css" />
   <script defer src="./assets/slides.js"></script>
 </head>
 <body>
 <main id="stage" aria-label="Intro to Next.js slide deck">
-  <section class="slide cover active" data-title="Build your first Next.js app" data-phase="Intro / 30 min">
-    <div class="cover-grid" aria-hidden="true"></div><div class="slide-inner hero"><p class="eyebrow">Hack the Hill · beginner workshop</p><h1>Build your first<br><span class="accent">Next.js</span> app.</h1><div class="cover-bottom"><span>15 min · ideas</span><span>15 min · build</span></div></div>
+  <section class="slide cover active" data-title="Next.js from zero">
+    <div class="cover-grid" aria-hidden="true"></div><div class="slide-inner cover-content"><span class="cover-label">Hack the Hill</span><h1>Next.js<br><span class="accent">from zero.</span></h1><div class="cover-timing"><span>15 min · learn</span><span>15 min · build</span></div></div>
     <aside class="speaker-note"><p><b>0:00–1:00.</b> Ask who has built a web page and who has used React. This is beginner-friendly: attendees can follow along or watch and try the backup source afterward. The app has no database.</p></aside>
   </section>
 
-  <section class="slide" data-title="What we will build" data-phase="Theory / 15 min">
-    <div class="slide-inner preview-layout"><div><p class="eyebrow">01 / The goal</p><h2>We’re building<br>this.</h2></div><div class="mock-window" aria-label="Preview of the idea board"><div class="mock-top">localhost:3000 <span>About ↗</span></div><div class="mock-body"><div class="mock-kicker">HACK THE HILL</div><h3>Idea board</h3><div class="mock-row">Campus food map</div><div class="mock-row">Study buddy finder</div><div class="mock-form"><div class="mock-input">Your idea…</div><div class="mock-button">Add</div></div></div></div></div>
+  <section class="slide" data-title="What we will build">
+    <div class="slide-inner preview-layout"><h2>Build<br>this.</h2><div class="browser-frame" aria-label="Idea board preview"><div class="browser-top"><i></i><i></i><i></i></div><div class="browser-body"><strong>Idea board</strong><div class="preview-line"></div><div class="preview-line short"></div><div class="preview-form"><span></span><b>+</b></div></div></div></div>
     <aside class="speaker-note"><p><b>1:00–2:30.</b> Show the completed backup app if convenient. Point out the list, input, and About link. Ideas live only in browser memory and reset on refresh.</p></aside>
   </section>
 
-  <section class="slide" data-title="What Next.js adds" data-phase="Theory / 15 min">
-    <div class="slide-inner"><p class="eyebrow">02 / Mental model</p><div class="concept-pair"><div><span class="concept-name">React</span><span class="concept-role">the UI</span></div><div><span class="concept-name accent">Next.js</span><span class="concept-role">the app</span></div></div></div>
+  <section class="slide" data-title="What Next.js adds">
+    <div class="slide-inner concept-layout"><div><strong>React</strong><span>UI</span></div><div><strong class="accent">Next.js</strong><span>APP</span></div></div>
     <aside class="speaker-note"><p><b>2:30–5:00.</b> A React component is a function that returns interface. Next.js provides conventions around it. Keep this conceptual; skip caching and deployment internals.</p><p>[Sources] <a href="https://nextjs.org/docs/app">Next.js App Router documentation</a>.</p></aside>
   </section>
 
-  <section class="slide" data-title="Routes are files" data-phase="Theory / 15 min">
-    <div class="slide-inner"><p class="eyebrow">03 / Routing</p><h2>Files become<br>URLs.</h2><div class="route-pair"><code>app/page.tsx</code><span>→</span><strong>/</strong></div><div class="route-pair"><code>app/about/page.tsx</code><span>→</span><strong>/about</strong></div></div>
+  <section class="slide" data-title="Routes are files">
+    <div class="slide-inner route-layout"><div class="route-title">Files <span>→</span> URLs</div><div class="route-row"><code>app/page.tsx</code><span>→</span><strong>/</strong></div><div class="route-row"><code>app/about/page.tsx</code><span>→</span><strong>/about</strong></div></div>
     <aside class="speaker-note"><p><b>5:00–7:30.</b> Point from the folder tree to the URLs. The root layout wraps pages. If attendees know React Router, explain that Next.js has a built-in file convention.</p><p>[Sources] <a href="https://nextjs.org/docs/app/getting-started/layouts-and-pages">Next.js: Layouts and Pages</a>.</p></aside>
   </section>
 
-  <section class="slide" data-title="Server and client components" data-phase="Theory / 15 min">
-    <div class="slide-inner"><p class="eyebrow">04 / Interaction</p><h2>Clicks need<br>a client component.</h2><div class="code-hero"><code>"use client";</code><span>+ useState()</span></div></div>
+  <section class="slide" data-title="Server and client components">
+    <div class="slide-inner boundary-layout"><div class="boundary-card"><strong>Server</strong><span>default</span></div><div class="boundary-arrow">→</div><div class="boundary-card client"><strong>Client</strong><code>"use client"</code></div></div>
     <aside class="speaker-note"><p><b>7:30–11:00.</b> Pages and layouts are Server Components by default. They can render Client Components. Put <code>"use client"</code> at the top of a file when it needs React state, event handlers, or browser APIs. Client Components can still be pre-rendered to HTML; the boundary says where interactivity lives.</p><p>[Sources] <a href="https://nextjs.org/docs/app/getting-started/server-and-client-components">Next.js: Server and Client Components</a>.</p></aside>
   </section>
 
-  <section class="slide" data-title="The build plan" data-phase="Theory / 15 min">
-    <div class="slide-inner"><p class="eyebrow">05 / Recap</p><h2>You know enough<br>to build.</h2><div class="three-steps"><div><span>01</span><strong>Home</strong></div><div><span>02</span><strong>List</strong></div><div><span>03</span><strong>About</strong></div></div></div>
+  <section class="slide" data-title="The build plan">
+    <div class="slide-inner recap-layout"><h2>That’s the app.</h2><div class="recap-grid"><div><span>/</span><strong>Route</strong></div><div><span>&lt;/&gt;</span><strong>Component</strong></div><div><span>+</span><strong>State</strong></div></div></div>
     <aside class="speaker-note"><p><b>11:00–15:00.</b> Recap and take a couple of questions. Move to the build at minute 15 even if questions remain.</p><p>[Sources] <a href="https://nextjs.org/docs/app/getting-started/layouts-and-pages">Layouts and Pages</a>; <a href="https://nextjs.org/docs/app/getting-started/server-and-client-components">Server and Client Components</a>.</p></aside>
   </section>
 
-  <section class="slide section-dark" data-title="Let's build" data-phase="Live build / 15 min">
-    <div class="big-index" aria-hidden="true">02</div><div class="slide-inner centered"><p class="eyebrow">Part 02 / Live build</p><h1>Let’s build.</h1></div>
+  <section class="slide section-dark" data-title="Let's build">
+    <div class="slide-inner build-title"><h1>Let’s build<span class="accent">.</span></h1></div>
     <aside class="speaker-note"><p><b>15:00.</b> Switch from slides to the editor and terminal. Use the already scaffolded backup if venue Wi-Fi is slow.</p></aside>
   </section>
 
-  <section class="slide" data-title="Create the app" data-phase="Live build / 15 min">
-    <div class="slide-inner"><p class="eyebrow">01 / Scaffold</p><h2>Start here.</h2><div class="terminal"><div><span>$</span><code>npx create-next-app@latest hack-ideas --yes</code></div><div><span>$</span><code>cd hack-ideas</code></div><div><span>$</span><code>npm run dev</code></div></div></div>
-    <aside class="speaker-note"><p><b>15:00–17:00.</b> Pre-scaffold the project before the talk. The current defaults include TypeScript and the App Router. Saved CLI preferences may differ; if the scaffold uses <code>src/app/</code>, use that directory. Check <code>node -v</code> beforehand.</p><p>[Sources] <a href="https://nextjs.org/docs/app/getting-started/installation">Next.js: Installation</a>.</p></aside>
+  <section class="slide" data-title="Create the app">
+    <div class="slide-inner command-layout"><div class="command-line"><span>$</span><code>npx create-next-app@latest hack-ideas --yes</code></div><div class="command-line"><span>$</span><code>cd hack-ideas</code></div><div class="command-line"><span>$</span><code>npm run dev</code></div></div>
+    <aside class="speaker-note"><p><b>15:00–17:00.</b> Type the three commands on screen: scaffold, change directory, then start the dev server. Pre-scaffold the project before the talk. The current defaults include TypeScript and the App Router. Saved CLI preferences may differ; if the scaffold uses <code>src/app/</code>, use that directory. Check <code>node -v</code> beforehand.</p><p>[Sources] <a href="https://nextjs.org/docs/app/getting-started/installation">Next.js: Installation</a>.</p></aside>
   </section>
 
-  <section class="slide" data-title="Make the homepage" data-phase="Live build / 15 min">
-    <div class="slide-inner"><p class="eyebrow">02 / Home page</p><h2>Give the app<br>a home.</h2><div class="file-to-url"><code>app/page.tsx</code><span>→</span><strong>/</strong></div></div>
+  <section class="slide" data-title="Make the homepage">
+    <div class="slide-inner file-layout"><code>app/page.tsx</code><span>→</span><strong>/</strong></div>
     <aside class="speaker-note"><p><b>17:00–19:00.</b> Replace the starter <code>app/page.tsx</code>. The import will error until the next step creates <code>idea-board.tsx</code>; say so. JSX is HTML-like markup returned from a JavaScript function.</p><p>[Sources] <a href="https://nextjs.org/docs/app/getting-started/layouts-and-pages">Next.js: Layouts and Pages</a>.</p></aside>
   </section>
 
-  <section class="slide" data-title="Render ideas" data-phase="Live build / 15 min">
-    <div class="slide-inner"><p class="eyebrow">03 / Render a list</p><h2>Two ideas.</h2><div class="list-demo"><div><span>01</span>Campus food map</div><div><span>02</span>Study buddy finder</div></div><div class="code-tag"><code>ideas.map(...)</code></div></div>
+  <section class="slide" data-title="Render ideas">
+    <div class="slide-inner list-layout"><code>ideas.map(...)</code><div class="idea-list"><div><span>01</span>Campus food map</div><div><span>02</span>Study buddy finder</div></div></div>
     <aside class="speaker-note"><p><b>19:00–22:00.</b> Copy <code>demo/steps/idea-board-static.tsx</code> into <code>app/idea-board.tsx</code>. Show the array and <code>map</code>, then confirm the list renders.</p><p>[Sources] <a href="https://react.dev/learn/rendering-lists">React: Rendering Lists</a>.</p></aside>
   </section>
 
-  <section class="slide" data-title="Make it interactive" data-phase="Live build / 15 min">
-    <div class="slide-inner"><p class="eyebrow">04 / State</p><h2>Make it<br>interactive.</h2><div class="interaction-demo"><code>useState()</code><span>→</span><div class="mock-form"><div class="mock-input">Your idea…</div><div class="mock-button">Add</div></div></div></div>
+  <section class="slide" data-title="Make it interactive">
+    <div class="slide-inner state-layout"><code>useState()</code><span class="state-arrow">→</span><div class="state-form"><div></div><b>+</b></div></div>
     <aside class="speaker-note"><p><b>22:00–26:00.</b> Replace the static component with <code>demo/app/idea-board.tsx</code>. Show the new directive, state, form, and handler. <code>preventDefault</code> stops a page reload. The data resets on refresh because it is only in React state.</p><p>[Sources] <a href="https://nextjs.org/docs/app/getting-started/server-and-client-components">Next.js: Server and Client Components</a>; <a href="https://react.dev/reference/react/useState">React: useState</a>.</p></aside>
   </section>
 
-  <section class="slide" data-title="Add a route and keep going" data-phase="Live build / 15 min">
-    <div class="slide-inner"><p class="eyebrow">05 / One more route</p><h2>One more file.<br>One more page.</h2><div class="file-to-url"><code>app/about/page.tsx</code><span>→</span><strong>/about</strong></div><div class="closing-tag">Your turn ↗</div></div>
+  <section class="slide" data-title="Add a route and keep going">
+    <div class="slide-inner final-layout"><div class="file-layout"><code>app/about/page.tsx</code><span>→</span><strong>/about</strong></div><p>Your turn<span class="accent">.</span></p></div>
     <aside class="speaker-note"><p><b>26:00–30:00.</b> Add the route folder and a home-page <code>Link</code>. Point out the URL, then recap: route file, React component, client boundary. Suggest the stretch challenge and take one question if time allows. The backup app has a fuller About page and styles.</p><p>[Sources] <a href="https://nextjs.org/docs/app/getting-started/layouts-and-pages">Next.js: Layouts and Pages</a>; <a href="https://nextjs.org/learn">Next.js Learn</a>.</p></aside>
   </section>
 </main>
