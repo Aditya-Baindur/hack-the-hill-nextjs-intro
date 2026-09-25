@@ -6,7 +6,7 @@ if (!Number.isFinite(current) || current < 0 || current >= slides.length) curren
 slides.forEach((slide, index) => {
   const resource = document.createElement("a");
   resource.className = "slide-resource";
-  resource.href = slide.dataset.resourceUrl || "./resources.html";
+  resource.href = slide.dataset.resourceUrl || "../resources/";
   resource.target = "_blank";
   resource.rel = "noopener noreferrer";
   resource.setAttribute("aria-label", `Resource for ${slide.dataset.title}`);
@@ -46,6 +46,9 @@ document.addEventListener("click", (event) => {
 });
 
 document.addEventListener("keydown", (event) => {
+  // Let the idea board and other controls keep their normal keyboard behavior.
+  if (event.defaultPrevented || event.isComposing || event.ctrlKey || event.metaKey || event.altKey) return;
+  if (event.target.closest("input, textarea, select, button, a, [contenteditable='true']")) return;
   if (["ArrowRight", "PageDown", " "].includes(event.key)) { event.preventDefault(); show(current + 1); }
   if (["ArrowLeft", "PageUp"].includes(event.key)) { event.preventDefault(); show(current - 1); }
   if (event.key === "Home") show(0);
@@ -61,7 +64,9 @@ document.addEventListener("keydown", (event) => {
 });
 
 let touchX = null;
-document.getElementById("stage").addEventListener("touchstart", (event) => { touchX = event.changedTouches[0].clientX; }, { passive: true });
+document.getElementById("stage").addEventListener("touchstart", (event) => {
+  touchX = event.target.closest("input, button, a, .browser-frame") ? null : event.changedTouches[0].clientX;
+}, { passive: true });
 document.getElementById("stage").addEventListener("touchend", (event) => {
   if (touchX == null) return;
   const delta = event.changedTouches[0].clientX - touchX;

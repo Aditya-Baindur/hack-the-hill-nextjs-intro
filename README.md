@@ -1,10 +1,12 @@
 # Build with AI: Next.js + Cloudflare Worker + D1
 
-A one-hour beginner workshop for Hack the Hill. The projected slides are intentionally sparse; the speaker notes, [resource page](https://hth.byaditya.com/resources.html), [AI prompt pack](PROMPTS.md), and working demo carry the detail.
+A one-hour beginner workshop for Hack the Hill. The projected slides are intentionally sparse; the speaker notes, [resource page](https://hth.byaditya.com/resources/), [AI prompt pack](PROMPTS.md), and working demo carry the detail.
 
-**Slides:** <https://hth.byaditya.com/>
+**Home:** <https://hth.byaditya.com/>
 
-**Resources:** <https://hth.byaditya.com/resources.html>
+**Slides:** <https://hth.byaditya.com/slides/>
+
+**Resources:** <https://hth.byaditya.com/resources/>
 
 ## Present
 
@@ -19,11 +21,13 @@ Use **← / →** to change slides, **N** for presenter notes, **R** for the cur
 
 AI remains part of the build after slide 11: ask for a schema review, draft the API, review the SQL, explain the client component, and diagnose an actual error. Each prompt is in [PROMPTS.md](PROMPTS.md) and on the resource page.
 
+Slide 2 includes a hands-on preview: add an idea, refresh, or reset the board. This preview saves only in your browser; the full Next.js + Worker demo below uses D1. If browser storage is unavailable, the preview keeps ideas for the current page session and says so.
+
 ## Before the talk
 
 1. Have Node.js 20.9 or newer, a code editor, two terminals, and an AI coding assistant ready. A Cloudflare account is optional for the **local** demo.
 2. Run the commands below before the lecture. Keep the complete demo available as a fallback if installation or Wi-Fi is slow.
-3. Open the [slides](https://hth.byaditya.com/), [resources](https://hth.byaditya.com/resources.html), `http://localhost:3000`, and `http://localhost:8787/ideas` in browser tabs.
+3. Open the [slides](https://hth.byaditya.com/slides/), [resources](https://hth.byaditya.com/resources/), `http://localhost:3000`, and `http://localhost:8787/ideas` in browser tabs.
 4. Keep the D1 database local during the timed build. Remote D1 needs a separate database and migration.
 
 ## Run the demo locally

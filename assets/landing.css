@@ -1,0 +1,159 @@
+@font-face {
+  font-family: Geist;
+  src: url("./geist-latin.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("./geist-mono-latin.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+  --ink: #171717;
+  --muted: #666;
+  --line: #e8e8e8;
+  --blue: #0070f3;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0 32px;
+  background: #fff;
+  color: var(--ink);
+  font-family: Geist, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+a:focus-visible { outline: 2px solid var(--blue); outline-offset: 5px; }
+p, h1 { margin: 0; }
+
+.page {
+  max-width: 1120px;
+  min-height: 100svh;
+  margin: 0 auto;
+  border-inline: 1px solid var(--line);
+}
+
+.masthead {
+  min-height: 100px;
+  padding: 28px 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid var(--line);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -.02em;
+}
+
+.masthead p > span:first-child { margin-inline: 7px; color: var(--muted); }
+.duration { color: var(--muted); }
+.code-link { padding-block: 10px; transition: color .18s ease; }
+.code-link span { margin-left: 5px; }
+.code-link:hover { color: var(--blue); }
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(64px, 11vh, 112px) 56px 60px;
+  min-height: min(620px, 68svh);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-grid {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background-image: linear-gradient(to right, var(--line) 1px, transparent 1px), linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  background-position: right top;
+  mask-image: radial-gradient(ellipse 65% 95% at 100% 32%, #000 0%, transparent 85%);
+}
+
+h1 {
+  max-width: 900px;
+  font-size: clamp(86px, 12vw, 152px);
+  font-weight: 600;
+  line-height: .98;
+  letter-spacing: -.075em;
+}
+
+h1 span { color: var(--blue); }
+
+.stack {
+  margin-top: 52px;
+  color: var(--muted);
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: 14px;
+  line-height: 1.7;
+  letter-spacing: -.035em;
+}
+
+.stack span { margin-inline: 12px; color: #a3a3a3; }
+
+.destinations {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-block: 1px solid var(--line);
+}
+
+.destination {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 23px 20px;
+  padding: 30px 56px 35px;
+  transition: background-color .2s ease;
+}
+
+.destination + .destination { border-left: 1px solid var(--line); }
+.destination-number { grid-column: 1 / -1; color: var(--muted); font: 12px "Geist Mono", ui-monospace, monospace; }
+.destination-title { font-size: 38px; font-weight: 500; letter-spacing: -.055em; }
+.destination-arrow { color: var(--blue); font-size: 31px; font-weight: 400; transition: transform .2s ease; }
+.destination:hover { background: #f6faff; }
+.destination:hover .destination-arrow { transform: translate(3px, -3px); }
+.destination:focus-visible { z-index: 1; outline-offset: -3px; }
+
+@media (min-width: 1600px) {
+  body { padding-top: 32px; }
+  .page { min-height: calc(100svh - 32px); border-top: 1px solid var(--line); }
+}
+
+@media (max-width: 700px) {
+  body { padding-inline: 20px; }
+  .masthead { padding: 20px 24px; min-height: 88px; font-size: 13px; }
+  .masthead p > span:first-child { margin-inline: 4px; }
+  .hero { padding: 68px 24px 44px; min-height: 440px; }
+  h1 { font-size: clamp(70px, 15vw, 103px); }
+  .stack { font-size: 12px; margin-top: 42px; }
+  .stack span { margin-inline: 6px; }
+  .destinations { grid-template-columns: 1fr; }
+  .destination { padding: 24px; gap: 16px 20px; }
+  .destination + .destination { border-left: 0; border-top: 1px solid var(--line); }
+  .destination-title { font-size: 32px; }
+  .destination-arrow { font-size: 28px; }
+}
+
+@media (max-width: 380px) {
+  body { padding-inline: 12px; }
+  .masthead, .hero, .destination { padding-inline: 18px; }
+  .masthead { gap: 10px; font-size: 12px; }
+  h1 { font-size: clamp(60px, 18vw, 67px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; }
+}
