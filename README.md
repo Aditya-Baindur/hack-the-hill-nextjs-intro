@@ -2,6 +2,8 @@
 
 A browser slide deck for a 30-minute beginner workshop, with a complete working demo. The visual system follows UseAbout's restrained typography, white canvas, fine borders, and focused blue accents.
 
+**Slides:** <https://aditya-baindur.github.io/hack-the-hill-nextjs-intro/>
+
 ## Present
 
 Open `index.html` or `slides.html` in a browser. Use **← / →** or the on-slide buttons to change slides, **N** for speaker notes, **F** for fullscreen, and **P** to print or save as PDF. Touchscreens support swiping. The notes include timing and teaching prompts. Slides 1–6 cover the 15-minute introduction; slides 7–12 guide the 15-minute build. If you project your screen, use a second window for notes.
@@ -26,9 +28,9 @@ Open `index.html` or `slides.html` in a browser. Use **← / →** or the on-sli
 
 The demo deliberately stores ideas only in React state; they reset on refresh. This leaves databases and server mutations for a follow-up workshop.
 
-## Hosting build
+## Hosting
 
-`npm run build` creates the deployable site in `dist/server/index.js`. The site also works as static files through `index.html`.
+GitHub Pages publishes the static files from the repository's `main` branch root. `index.html` opens the slide deck, and the assets are self-contained.
 
 The bundled Geist fonts retain their license in [`assets/geist-LICENSE.txt`](assets/geist-LICENSE.txt).
 
