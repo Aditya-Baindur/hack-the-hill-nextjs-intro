@@ -1,10 +1,10 @@
 # Build with AI: Next.js + Cloudflare Worker + D1
 
-A one-hour beginner workshop for Hack the Hill. The projected slides are intentionally sparse; the speaker notes, [resource page](https://aditya-baindur.github.io/hack-the-hill-nextjs-intro/resources.html), [AI prompt pack](PROMPTS.md), and working demo carry the detail.
+A one-hour beginner workshop for Hack the Hill. The projected slides are intentionally sparse; the speaker notes, [resource page](https://hth.byaditya.com/resources.html), [AI prompt pack](PROMPTS.md), and working demo carry the detail.
 
-**Slides:** <https://aditya-baindur.github.io/hack-the-hill-nextjs-intro/>
+**Slides:** <https://hth.byaditya.com/>
 
-**Resources:** <https://aditya-baindur.github.io/hack-the-hill-nextjs-intro/resources.html>
+**Resources:** <https://hth.byaditya.com/resources.html>
 
 ## Present
 
@@ -23,7 +23,7 @@ AI remains part of the build after slide 11: ask for a schema review, draft the 
 
 1. Have Node.js 20.9 or newer, a code editor, two terminals, and an AI coding assistant ready. A Cloudflare account is optional for the **local** demo.
 2. Run the commands below before the lecture. Keep the complete demo available as a fallback if installation or Wi-Fi is slow.
-3. Open the [slides](https://aditya-baindur.github.io/hack-the-hill-nextjs-intro/), [resources](https://aditya-baindur.github.io/hack-the-hill-nextjs-intro/resources.html), `http://localhost:3000`, and `http://localhost:8787/ideas` in browser tabs.
+3. Open the [slides](https://hth.byaditya.com/), [resources](https://hth.byaditya.com/resources.html), `http://localhost:3000`, and `http://localhost:8787/ideas` in browser tabs.
 4. Keep the D1 database local during the timed build. Remote D1 needs a separate database and migration.
 
 ## Run the demo locally
