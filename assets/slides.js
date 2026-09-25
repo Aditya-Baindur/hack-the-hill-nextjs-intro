@@ -4,15 +4,14 @@ let current = Number.parseInt(location.hash.slice(1), 10) - 1;
 if (!Number.isFinite(current) || current < 0 || current >= slides.length) current = 0;
 
 slides.forEach((slide, index) => {
-  const phase = slide.dataset.phase || "Workshop";
   const header = document.createElement("header");
   header.className = "slide-head";
-  header.innerHTML = `<div class="brand">useabout<span class="brand-dot">.</span></div><div class="head-right"><span>${phase}</span><span class="head-divider"></span><span class="mono">Hack the Hill / Next.js</span></div>`;
+  header.innerHTML = `<div class="head-right">Hack the Hill</div>`;
   slide.prepend(header);
 
   const footer = document.createElement("footer");
   footer.className = "slide-foot";
-  footer.innerHTML = `<span class="foot-label">Intro to Next.js · 30 minutes</span><div class="foot-right"><span class="slide-count">${String(index + 1).padStart(2, "0")} / ${String(slides.length).padStart(2, "0")}</span><div class="foot-actions"><button type="button" data-nav="prev" aria-label="Previous slide">←</button><button type="button" data-nav="notes" aria-label="Presenter notes">i</button><button type="button" data-nav="next" aria-label="Next slide">→</button></div></div>`;
+  footer.innerHTML = `<span class="slide-count">${String(index + 1).padStart(2, "0")} / ${String(slides.length).padStart(2, "0")}</span><div class="foot-actions"><button type="button" data-nav="prev" aria-label="Previous slide">←</button><button type="button" data-nav="notes" aria-label="Presenter notes">i</button><button type="button" data-nav="next" aria-label="Next slide">→</button></div>`;
   slide.append(footer);
 
   const progress = document.createElement("div");

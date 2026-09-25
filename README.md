@@ -1,6 +1,6 @@
 # Hack the Hill: Intro to Next.js
 
-A browser slide deck for a 30-minute beginner workshop, with a complete working demo. The visual system follows UseAbout's restrained typography, white canvas, fine borders, and focused blue accents.
+A browser slide deck for a 30-minute beginner workshop, with a complete working demo. The visual system uses restrained typography, a white canvas, fine borders, and focused blue accents.
 
 **Slides:** <https://aditya-baindur.github.io/hack-the-hill-nextjs-intro/>
 
