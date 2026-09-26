@@ -1,12 +1,12 @@
 # Build with AI: Next.js + Cloudflare Worker + D1
 
-A one-hour beginner workshop for Hack the Hill. The projected slides are intentionally sparse; the speaker notes, [resource page](https://hth.byaditya.com/resources/), [AI prompt pack](PROMPTS.md), and working demo carry the detail.
+A one-hour beginner workshop for Hack the Hill. The projected slides are intentionally sparse; the speaker notes, [resource page](https://hth.adityabaindur.dev/resources/), [AI prompt pack](PROMPTS.md), and working demo carry the detail.
 
-**Home:** <https://hth.byaditya.com/>
+**Home:** <https://hth.adityabaindur.dev/>
 
-**Slides:** <https://hth.byaditya.com/slides/>
+**Slides:** <https://hth.adityabaindur.dev/slides/>
 
-**Resources:** <https://hth.byaditya.com/resources/>
+**Resources:** <https://hth.adityabaindur.dev/resources/>
 
 ## Present
 
@@ -27,7 +27,7 @@ Slide 2 includes a hands-on preview: add an idea, refresh, or reset the board. T
 
 1. Have Node.js 22 or newer, a code editor, a terminal, and Codex or GitHub Copilot ready. A Cloudflare account is optional for the **local** demo.
 2. Run the commands below before the lecture. Keep the complete demo available as a fallback if installation or Wi-Fi is slow.
-3. Open the [slides](https://hth.byaditya.com/slides/), [resources](https://hth.byaditya.com/resources/), `http://localhost:3000`, and `http://localhost:8787/ideas` in browser tabs.
+3. Open the [slides](https://hth.adityabaindur.dev/slides/), [resources](https://hth.adityabaindur.dev/resources/), `http://localhost:3000`, and `http://localhost:8787/ideas` in browser tabs.
 4. Keep the D1 database local during the timed build. Remote D1 needs a separate database and migration.
 
 ## Create your app with the npm package

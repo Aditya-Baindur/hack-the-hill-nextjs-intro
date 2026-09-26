@@ -1,0 +1,25 @@
+{
+  "name": "hack-the-hill-site",
+  "account_id": "e0090611946a50398df8b46cac4fca29",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-09-25",
+  "workers_dev": true,
+  "preview_urls": false,
+  "routes": [
+    {
+      "pattern": "hth.adityabaindur.dev",
+      "zone_name": "adityabaindur.dev",
+      "custom_domain": true
+    },
+    {
+      "pattern": "hth.byaditya.com",
+      "zone_name": "byaditya.com",
+      "custom_domain": true
+    }
+  ],
+  "observability": {
+    "enabled": true,
+    "logs": { "enabled": true, "head_sampling_rate": 1 },
+    "traces": { "enabled": true, "head_sampling_rate": 0.01 }
+  }
+}
