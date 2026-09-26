@@ -15,9 +15,15 @@ h1,h2,p{margin:0;letter-spacing:-.065em;font-weight:620}
 h1{font-size:130px;line-height:1}
 h2{font-size:112px;line-height:1.02}
 .cover-grid{position:absolute;inset:0;background-image:linear-gradient(to right,#ededed 1px,transparent 1px),linear-gradient(to bottom,#ededed 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 85% 96% at 81% 46%,#000 0%,transparent 75%)}
-.cover-content{align-items:flex-start;flex-direction:column;z-index:1}
+.cover-content{align-items:flex-start;justify-content:flex-start;flex-direction:column;padding-top:144px;z-index:1}
 .cover-label{position:absolute;top:70px;font-size:21px;font-weight:570;letter-spacing:-.02em}
-.cover-content h1{font-size:125px}
+.cover-content h1{font-size:112px}
+.cover-link{display:block;width:100%;margin-top:40px;padding:24px 30px 28px;border-radius:10px;background:var(--blue);color:#fff;text-decoration:none}
+.cover-link-label{display:block;margin-bottom:12px;font-size:23px;font-weight:500;letter-spacing:-.02em}
+.cover-link-url{display:flex;align-items:center;justify-content:space-between;gap:24px;font-size:76px;font-weight:620;line-height:1.1;letter-spacing:-.055em;white-space:nowrap}
+.cover-link-url>span{font-size:64px;font-weight:400}
+.cover-link:hover{background:#005ac2}
+.cover-link:focus-visible{outline:3px solid var(--ink);outline-offset:6px}
 .cover-timing{position:absolute;bottom:65px;display:flex;gap:42px;color:#777;font:17px "Geist Mono",monospace}
 .preview-layout{display:grid;grid-template-columns:1fr 1.15fr;gap:65px}
 .preview-layout h2{font-size:118px}
